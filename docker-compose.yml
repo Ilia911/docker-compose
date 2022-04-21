@@ -12,3 +12,13 @@ services:
       - MONGO_INITDB_DATABASE=advert
     volumes:
       - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+
+  postgres:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=maklerplus
+      - APP_DB_NAME=maklerplus
+    ports:
+      - 5432:5432
