@@ -15,10 +15,13 @@ services:
 
   postgres:
     image: postgres:latest
+    ports:
+      - 5432:5432
+    container_name: postgres_maklerplus
     environment:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=maklerplus
       - APP_DB_NAME=maklerplus
-    ports:
-      - 5432:5432
+    volumes:
+      - ./init/postgres/postgres-init.sh:/docker-entrypoint-initdb.d/postgres-init.sh:ro
