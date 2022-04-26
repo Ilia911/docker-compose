@@ -5,13 +5,13 @@ services:
     image: mongo:5.0
     ports:
       - 27017:27017
-    container_name: mongo_db
+    container_name: mongo_maklerplus
     environment:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=password
-      - MONGO_INITDB_DATABASE=advert
+      - MONGO_INITDB_DATABASE=maklerplus
     volumes:
-      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - ./init/mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
 
   zookeeper-1:
     image: confluentinc/cp-zookeeper:latest
