@@ -91,3 +91,16 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    container_name: postgres_maklerplus
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=maklerplus
+      - APP_DB_NAME=maklerplus
+    volumes:
+      - ./init/postgres/postgres-init.sh:/docker-entrypoint-initdb.d/postgres-init.sh:ro
