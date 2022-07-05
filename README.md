@@ -1,3 +1,3 @@
 # common-env
 
-Common Environment
+Common Environment for MaklerPlus educational project
